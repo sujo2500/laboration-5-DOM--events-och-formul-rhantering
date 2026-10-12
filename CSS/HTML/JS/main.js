@@ -24,6 +24,8 @@ const deleteHistoryButton = document.querySelector("#delete");
 
 // Array som används för felmeddelanden
 let errors = [];
+errors.push("Du måste skriva in ditt namn");
+errors.push("Du har använt ogiltliga tecken");
 
 // Array som innehåller sparade studentkort
 let history = [];
@@ -114,6 +116,23 @@ function deleteHistory() {
 
 
 // Eventlyssnare
+submit.addEventListener("click", function (event) {
+    event.preventDefault ();
+
+    const namnInput = fullnameInput();
+    if (fullnameInput === false) {
+        return;
+    }
+     
+});
+
+function validateForm() {
+        if (fullnameInput.value === "") {
+            console.log("Du måste fylla i namn");
+            return false;
+}
+            return true;
+};
 
 // När formuläret skickas:
 // - validera inmatningen
