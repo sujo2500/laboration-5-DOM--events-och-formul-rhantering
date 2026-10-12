@@ -1,0 +1,5 @@
+1. hämta in formulär
+2. validering utav fälten
+3. skriv ut eventuella felmeddelanden
+4. lagra användare till listan
+5. skriv ut användare till sidan

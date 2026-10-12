@@ -24,8 +24,7 @@ const deleteHistoryButton = document.querySelector("#delete");
 
 // Array som används för felmeddelanden
 let errors = [];
-errors.push("Du måste skriva in ditt namn");
-errors.push("Du har använt ogiltliga tecken");
+
 
 // Array som innehåller sparade studentkort
 let history = [];
@@ -36,11 +35,29 @@ let history = [];
  */
 function validateForm() {
     // Kontrollera formulärets obligatoriska fält
+    if (fullnameInput.value === "") {
+        errors.push("Du måste fylla i namn");
+        return false;
+    }
 
     // Visa eventuella felmeddelanden
+    displayErrors ();
 
     // Returnera resultatet (true eller false) av valideringen
+
+    if (emailInput.value === "") {
+        errors.push("Du måste fylla i din e-postadress");
+        return false;
+    }
+
+    if (phoneInput.value === "") {
+        errors.push("du måste fylla i telefonnummer");
+        return false;
+    }
+
+    return true;
 }
+
 
 
 /**
@@ -126,20 +143,21 @@ submit.addEventListener("click", function (event) {
      
 });
 
-function validateForm() {
-        if (fullnameInput.value === "") {
-            console.log("Du måste fylla i namn");
-            return false;
-}
-            return true;
-};
 
 // När formuläret skickas:
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const isValid = validateForm();
+});
 // - validera inmatningen
+
+
 // - skapa studentkort om valideringen lyckas
 
 
 // När användaren klickar på "Rensa"
+document.querySelector(#form).reset();
 
 
 // När användaren klickar på "Radera historik"
