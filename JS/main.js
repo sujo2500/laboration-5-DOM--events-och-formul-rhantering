@@ -1,7 +1,7 @@
 "use strict";
 /*
  * Laboration 5 - Studentkortsgenerator
- * Namn: DITT NAMN
+ * Namn: Susan johansson
  */
 
 // Hämta element från DOM
@@ -78,7 +78,6 @@ function displayErrors() {
 /**
  * Skapar ett studentkort och visar det på sidan.
  */
-
 function createStudentCard() {
         // Hämta information från formuläret
     const user = {
@@ -87,16 +86,16 @@ function createStudentCard() {
         phone: phoneInput.value
     };
 
-    history.push(user);
-
     // Uppdatera studentkortet
 previewFullname.textContent = user.name;
 previewEmail.textContent = user.email;
 previewPhone.textContent = user.phone;
 
     // Lägg till studentkortet i historiken
+    history.push(user);
 
     // Spara och uppdatera historiken
+    saveHistory();
 }
 
 
@@ -104,10 +103,7 @@ previewPhone.textContent = user.phone;
  * Sparar historiken i localStorage.
  */
 function saveHistory() {
-    const savedUsers = {
-        users
-    }
-    history = [users];
+    localStorage.setItem("history", JSON.stringify(history));
     // Spara history i localStorage
 }
 
@@ -117,8 +113,11 @@ function saveHistory() {
  */
 function loadHistory() {
     // Hämta eventuell sparad historik
-
+    const savedHistory = localStorage.getItem("history");
     // Uppdatera history
+    if (savedHistory !== null) {
+        history = JSON.parse(savedHistory);
+    }
 }
 
 
