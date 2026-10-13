@@ -34,37 +34,42 @@ let history = [];
  * @returns {boolean}
  */
 function validateForm() {
+    // Rensa tidigare felmeddelanden
+    errors = [];
+
     // Kontrollera formulärets obligatoriska fält
     if (fullnameInput.value === "") {
         errors.push("Du måste fylla i namn");
-        return false;
+
     }
-
-    // Visa eventuella felmeddelanden
-    displayErrors ();
-
-    // Returnera resultatet (true eller false) av valideringen
-
     if (emailInput.value === "") {
         errors.push("Du måste fylla i din e-postadress");
-        return false;
     }
 
     if (phoneInput.value === "") {
         errors.push("du måste fylla i telefonnummer");
-        return false;
-    }
+    } 
 
-    return true;
-}
-
-
+     // Returnera resultatet (true eller false) av valideringen
+    return errors.length === 0;
+} 
 
 /**
  * Visar felmeddelanden på sidan.
  */
 function displayErrors() {
-    // Rensa tidigare felmeddelanden
+    errorList.innerHTML = "";
+
+    if (errors.length > 0) {
+
+        for (let i = 0; i < errors.length; i++) {
+            const liEl = document.createElement("li");
+            liEl.textContent = errors[i];
+
+            errorList.appendChild(liEl);
+        } 
+    }
+    
 
     // Skriv ut aktuella felmeddelanden till DOM
 }
@@ -73,10 +78,21 @@ function displayErrors() {
 /**
  * Skapar ett studentkort och visar det på sidan.
  */
+
 function createStudentCard() {
-    // Hämta information från formuläret
+        // Hämta information från formuläret
+    const user = {
+        name: fullnameInput.value,
+        email: emailInput.value,
+        phone: phoneInput.value
+    };
+
+    history.push(user);
 
     // Uppdatera studentkortet
+previewFullname.textContent = user.name;
+previewEmail.textContent = user.email;
+previewPhone.textContent = user.phone;
 
     // Lägg till studentkortet i historiken
 
@@ -88,6 +104,10 @@ function createStudentCard() {
  * Sparar historiken i localStorage.
  */
 function saveHistory() {
+    const savedUsers = {
+        users
+    }
+    history = [users];
     // Spara history i localStorage
 }
 
@@ -133,15 +153,7 @@ function deleteHistory() {
 
 
 // Eventlyssnare
-submit.addEventListener("click", function (event) {
-    event.preventDefault ();
 
-    const namnInput = fullnameInput();
-    if (fullnameInput === false) {
-        return;
-    }
-     
-});
 
 
 // När formuläret skickas:
@@ -149,7 +161,15 @@ form.addEventListener("submit", function(event) {
     event.preventDefault();
 
     const isValid = validateForm();
-});
+
+    displayErrors();
+
+    if (isValid) {
+        createStudentCard();
+    }
+
+})
+
 // - validera inmatningen
 
 
@@ -157,10 +177,14 @@ form.addEventListener("submit", function(event) {
 
 
 // När användaren klickar på "Rensa"
-document.querySelector(#form).reset();
+function clearForm() {
+    
+}
+
 
 
 // När användaren klickar på "Radera historik"
+addEventListener
 
 
 // När sidan laddas:
