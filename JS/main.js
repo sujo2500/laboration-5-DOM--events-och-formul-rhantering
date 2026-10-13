@@ -86,6 +86,7 @@ function createStudentCard() {
         phone: phoneInput.value
     };
 
+    const users = [];
     // Uppdatera studentkortet
 previewFullname.textContent = user.name;
 previewEmail.textContent = user.email;
