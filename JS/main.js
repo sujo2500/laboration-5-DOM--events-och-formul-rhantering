@@ -97,6 +97,7 @@ previewPhone.textContent = user.phone;
 
     // Spara och uppdatera historiken
     saveHistory();
+    renderHistory();
 }
 
 
