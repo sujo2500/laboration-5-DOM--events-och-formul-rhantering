@@ -127,8 +127,13 @@ function loadHistory() {
  */
 function renderHistory() {
     // Rensa tidigare visad historik
-
+    historySection.innerHTML = "";
     // Skriv ut innehållet i history till DOM
+    for(let i = 0; i < history.length; i++) {
+        const liEl = document.createElement("li");
+        liEl.textContent = history[i].name + " " + history[i].email + " " + history[i].phone;
+        historySection.appendChild(liEl);
+    }
 }
 
 
