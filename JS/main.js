@@ -143,8 +143,14 @@ function renderHistory() {
  */
 function clearForm() {
     form.reset();
+    previewEmail.textContent = "";
+    previewFullname.textContent = "";
+    previewPhone.textContent = "";
+    errorList.innerHTML = "";
+    console.log("clearform körs");
         // Återställ formulär och studentkort
           // Rensa eventuella felmeddelanden
+          // När användaren klickar på "Rensa"
 }    
 
 clearButton.addEventListener("click", clearForm);
@@ -186,10 +192,6 @@ form.addEventListener("submit", function(event) {
 // - skapa studentkort om valideringen lyckas
 
 
-// När användaren klickar på "Rensa"
-function clearForm() {
-    
-}
 
 
 
