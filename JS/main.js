@@ -142,10 +142,14 @@ function renderHistory() {
  * Rensar formulär, aktuellt studentkort och felmeddelanden.
  */
 function clearForm() {
-    // Återställ formulär och studentkort
+    form.reset();
+        // Återställ formulär och studentkort
+          // Rensa eventuella felmeddelanden
+}    
 
-    // Rensa eventuella felmeddelanden
-}
+clearButton.addEventListener("click", clearForm);
+  
+
 
 
 /**
