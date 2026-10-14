@@ -147,7 +147,6 @@ function clearForm() {
     previewFullname.textContent = "";
     previewPhone.textContent = "";
     errorList.innerHTML = "";
-    console.log("clearform körs");
         // Återställ formulär och studentkort
           // Rensa eventuella felmeddelanden
           // När användaren klickar på "Rensa"
@@ -162,12 +161,12 @@ clearButton.addEventListener("click", clearForm);
  * Raderar hela historiken.
  */
 function deleteHistory() {
+    history = [];
     // Radera sparad historik
 
     // Uppdatera history och visningen på sidan
 }
-
-
+deleteHistoryButton.addEventListener("click", deleteHistory);
 // Eventlyssnare
 
 
