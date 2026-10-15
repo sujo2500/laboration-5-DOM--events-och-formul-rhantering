@@ -162,6 +162,8 @@ clearButton.addEventListener("click", clearForm);
  */
 function deleteHistory() {
     history = [];
+    localStorage.removeItem("history");
+    renderHistory();
     // Radera sparad historik
 
     // Uppdatera history och visningen på sidan
@@ -191,12 +193,7 @@ form.addEventListener("submit", function(event) {
 // - skapa studentkort om valideringen lyckas
 
 
-
-
-
-// När användaren klickar på "Radera historik"
-addEventListener
-
-
 // När sidan laddas:
+loadHistory();
+renderHistory();
 // - läs in och visa eventuell tidigare historik
