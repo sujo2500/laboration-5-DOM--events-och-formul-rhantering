@@ -83,7 +83,8 @@ function createStudentCard() {
     const user = {
         name: fullnameInput.value,
         email: emailInput.value,
-        phone: phoneInput.value
+        phone: phoneInput.value,
+        font: fontSelect.value
     };
 
     const users = [];
@@ -92,8 +93,13 @@ previewFullname.textContent = user.name;
 previewEmail.textContent = user.email;
 previewPhone.textContent = user.phone;
 
+previewEmail.style.fontFamily = user.font;
+previewFullname.style.fontFamily = user.font;
+previewPhone.style.fontFamily = user.font;
+
+
     // Lägg till studentkortet i historiken
-    history.push(user);
+    history.unshift(user);
 
     // Spara och uppdatera historiken
     saveHistory();
@@ -147,6 +153,8 @@ function clearForm() {
     previewFullname.textContent = "";
     previewPhone.textContent = "";
     errorList.innerHTML = "";
+
+
         // Återställ formulär och studentkort
           // Rensa eventuella felmeddelanden
           // När användaren klickar på "Rensa"
@@ -196,4 +204,5 @@ form.addEventListener("submit", function(event) {
 // När sidan laddas:
 loadHistory();
 renderHistory();
+
 // - läs in och visa eventuell tidigare historik
